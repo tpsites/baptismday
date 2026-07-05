@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Ευχαριστούμε | Θάνος & Ειρήνη</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    :root{
+      --background-image:url("background (2).png");
+     --main-color: #F7C5CD;
+            --dark-color: #A16A86;
+            --light-color: #FDF0E9;
+      --glass-bg:rgba(255,255,255,.58);
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      min-height:100vh;
+      font-family:Georgia, 'Times New Roman', serif;
+      color:var(--dark-color);
+      background:#f6f1f7;
+      overflow-x:hidden;
+      display:grid;
+      place-items:center;
+      padding:clamp(24px, 5vw, 70px);
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        linear-gradient(rgba(255,255,255,.16), rgba(255,255,255,.28)),
+        var(--background-image);
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      z-index:-2;
+    }
+
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        radial-gradient(circle at center, transparent 0%, rgba(67,48,75,.18) 100%);
+      z-index:-1;
+      pointer-events:none;
+    }
+
+    .thank-you-card{
+      width:min(760px, 100%);
+      min-height:min(680px, 86vh);
+      padding:clamp(34px, 7vw, 76px) clamp(22px, 5vw, 58px);
+      border-radius:32px;
+      background:var(--glass-bg);
+      border:1px solid rgba(255,255,255,.5);
+      box-shadow:0 30px 80px rgba(70,50,78,.18);
+      backdrop-filter:blur(12px);
+      text-align:center;
+      display:grid;
+      place-items:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .thank-you-card::before{
+      content:"";
+      position:absolute;
+      width:260px;
+      height:260px;
+      right:-90px;
+      top:-90px;
+      border-radius:50%;
+      background:rgba(212,200,213,.42);
+      filter:blur(8px);
+      z-index:0;
+    }
+
+    .thank-you-card::after{
+      content:"";
+      position:absolute;
+      width:220px;
+      height:220px;
+      left:-90px;
+      bottom:-90px;
+      border-radius:50%;
+      background:rgba(255,255,255,.42);
+      filter:blur(8px);
+      z-index:0;
+    }
+
+    .thank-you-content{
+      position:relative;
+      z-index:1;
+      width:100%;
+    }
+
+    .eyebrow{
+      font-size:clamp(12px, 1.8vw, 15px);
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:rgba(81,66,88,.68);
+      margin-bottom:20px;
+    }
+
+    .heart{
+      width:82px;
+      height:82px;
+      margin:0 auto 26px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:rgba(255,255,255,.62);
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.6),
+        0 18px 38px rgba(70,50,78,.12);
+      animation:heartFloat 1.8s ease-in-out infinite;
+    }
+
+    .heart svg{
+      width:42px;
+      height:42px;
+      fill:none;
+      stroke:var(--dark-color);
+      stroke-width:1.8;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    @keyframes heartFloat{
+      0%, 100%{
+        transform:translateY(0);
+      }
+
+      50%{
+        transform:translateY(-8px);
+      }
+    }
+
+    h1{
+      font-size:clamp(42px, 7vw, 82px);
+      font-weight:400;
+      line-height:.95;
+      margin-bottom:22px;
+    }
+
+    .names{
+      font-size:clamp(28px, 5vw, 56px);
+      font-weight:400;
+      line-height:1;
+      margin-bottom:24px;
+    }
+
+    .message{
+      font-size:clamp(17px, 2.2vw, 22px);
+      line-height:1.75;
+      max-width:600px;
+      margin:0 auto 34px;
+      color:rgba(81,66,88,.78);
+    }
+
+    .thank-you-button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:15px 28px;
+      border-radius:999px;
+      background:var(--main-color);
+      color:var(--dark-color);
+      text-decoration:none;
+      font-size:clamp(14px, 1.8vw, 16px);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      box-shadow:0 18px 36px rgba(70,50,78,.20);
+      transition:transform .25s ease, opacity .25s ease;
+    }
+
+    .thank-you-button:hover{
+      transform:translateY(-2px);
+      opacity:.92;
+    }
+
+    .small-note{
+      margin-top:28px;
+      font-size:14px;
+      color:rgba(81,66,88,.58);
+      line-height:1.6;
+    }
+
+    @media (max-width:520px){
+      body{
+        padding:18px 14px;
+      }
+
+      .thank-you-card{
+        min-height:88vh;
+        border-radius:24px;
+        padding:34px 18px;
+      }
+
+      .heart{
+        width:70px;
+        height:70px;
+      }
+
+      .heart svg{
+        width:36px;
+        height:36px;
+      }
+
+      .thank-you-button{
+        width:100%;
+        padding:14px 18px;
+        font-size:13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="thank-you-card">
+    <div class="thank-you-content">
+      <p class="eyebrow">RSVP Received</p>
+
+      <div class="heart" aria-hidden="true">
+        <svg viewBox="0 0 64 64">
+          <path d="M32 54S12 42 12 24c0-8 6-14 14-14c4 0 8 2 10 6c2-4 6-6 10-6c8 0 14 6 14 14c0 18-20 30-28 30Z"/>
+        </svg>
+      </div>
+
+      <h1>Ευχαριστούμε!</h1>
+
+      
+
+      <p class="message">
+        Η απάντησή σας καταχωρήθηκε με επιτυχία.
+        Ανυπομονούμε να γιορτάσουμε μαζί σας αυτή την ξεχωριστή ημέρα.
+      </p>
+
+      <a class="thank-you-button" href="index.html">
+        Επιστροφή στην πρόσκληση
+      </a>
+
+    
+    </div>
+  </main>
+</body>
+</html>
